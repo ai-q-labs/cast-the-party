@@ -4,7 +4,7 @@
 
 **Tagline (≤ 200 chars):** A costume fitting for every murder-mystery guest: their character's look on their own face with YouCam, a tag showing which pieces actually showed up, and what to buy.
 
-**Demo link:** https://cast-the-party.onrender.com/ (Render free plan: the first load after a quiet spell can take about a minute while the server wakes) · **Video:** _(main session fills in)_ · **Code:** https://github.com/ai-q-labs/cast-the-party
+**Demo link:** https://cast-the-party.onrender.com/ (Render free plan: the first load after a quiet spell can take about a minute while the server wakes) · **Video:** https://www.youtube.com/watch?v=kzSRZW_w3m8 · **Code:** https://github.com/ai-q-labs/cast-the-party
 
 ---
 

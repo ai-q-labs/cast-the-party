@@ -4,7 +4,7 @@
 
 Built for the YouCam API Skin AI & eCommerce VTO Hackathon (2026). Node 20+ · zero dependencies · MIT.
 
-**Try it:** https://cast-the-party.onrender.com/
+**Try it:** https://cast-the-party.onrender.com/ · **Demo video (1:56):** https://www.youtube.com/watch?v=kzSRZW_w3m8
 
 The demo runs on Render's free plan, which puts the server to sleep after 15 minutes without visitors. If the first page load hangs, it is waking up: give it about a minute (on 2026-10-24 it took 22 seconds). The six example tags open without spending anything; a live render is capped per visitor and per day (see [Limits and caps](#limits-and-caps)).
 
