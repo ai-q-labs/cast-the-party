@@ -4,7 +4,7 @@
 
 **Tagline (≤ 200 chars):** A costume fitting for every murder-mystery guest: their character's look on their own face with YouCam, a tag showing which pieces actually showed up, and what to buy.
 
-**Demo link:** _(main session fills in the hosted URL)_ · **Video:** _(main session fills in)_ · **Code:** _(repo URL)_
+**Demo link:** https://cast-the-party.onrender.com/ (Render free plan: the first load after a quiet spell can take about a minute while the server wakes) · **Video:** _(main session fills in)_ · **Code:** https://github.com/ai-q-labs/cast-the-party
 
 ---
 
@@ -64,6 +64,6 @@ On our six example tags the shade check did real work: ink black moved from 21.0
 
 ## Built with
 
-`node.js` · `javascript` · `html5` · `css3` · `youcam-api` (File, AI Hairstyle, AI Hair Color, AI Makeup VTO, AI Earrings VTO, AI Hat VTO, AI Image Generator) · `canvas` · `cielab` · `ciede2000` · `replit`
+`node.js` · `javascript` · `html5` · `css3` · `youcam-api` (File, AI Hairstyle, AI Hair Color, AI Makeup VTO, AI Earrings VTO, AI Hat VTO, AI Image Generator) · `canvas` · `cielab` · `ciede2000` · `render`
 
 **AI disclosure:** this app was built with AI assistance; most of the code, copy and character writing were produced with Claude (Anthropic). The demo faces and prop photos are AI-generated with YouCam.

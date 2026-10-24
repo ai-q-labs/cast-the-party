@@ -4,6 +4,10 @@
 
 Built for the YouCam API Skin AI & eCommerce VTO Hackathon (2026). Node 20+ · zero dependencies · MIT.
 
+**Try it:** https://cast-the-party.onrender.com/
+
+The demo runs on Render's free plan, which puts the server to sleep after 15 minutes without visitors. If the first page load hangs, it is waking up: give it about a minute (on 2026-10-24 it took 22 seconds). The six example tags open without spending anything; a live render is capped per visitor and per day (see [Limits and caps](#limits-and-caps)).
+
 ## The problem
 
 We make printable murder-mystery party kits (Ai-Q Labs, sold on BOOTH, itch.io and Etsy). In every kit, each guest is handed a character, and the host asks everyone to come dressed for the part. The usual failure: guests don't know what the part looks like on *them*, buying costume pieces online is guesswork, and half the table turns up in street clothes.
@@ -116,6 +120,7 @@ src/app.js              HTTP routes, photo checks, in-memory jobs, static files
 public/characters.js    the six looks (read by both server and page)
 public/measure.js       change area, coverage, CIEDE2000 shade check
 public/app.js           the page: fitting form, progress, the costume tag
+public/tour.js          the narrated tour used for the demo video (open the page with ?tour=1)
 public/examples/        six example tags rendered on the demo faces
 scripts/                build-time tools (probe, paid dev runner, example renders)
 test/                   node --test, YouCam mocked; live.test.mjs is opt-in

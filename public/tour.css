@@ -1,0 +1,26 @@
+/* The narrated tour for the demo video (?tour=1). Loaded only in tour mode. */
+
+.tour-spot { outline: 3px solid var(--brass); outline-offset: 4px; border-radius: 6px; transition: outline-color .3s; }
+
+#tour-caption {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 1000;
+  width: min(880px, calc(100% - 32px)); padding: 10px 16px; border-radius: 10px;
+  background: rgba(23, 48, 46, .94); color: var(--chalk); border: 1px solid var(--brass);
+  font: 17px/1.45 var(--body); text-align: center;
+}
+
+#tour-title, #tour-end {
+  position: fixed; inset: 0; z-index: 900; display: grid; place-content: center; gap: 6px; padding: 24px;
+  background: var(--curtain); color: var(--chalk); text-align: center;
+}
+#tour-title h1, #tour-end h1 { margin: 0 0 6px; font: 700 64px/1 var(--display); letter-spacing: .02em; color: var(--tag); }
+#tour-title p, #tour-end p { margin: 2px 0; font: 20px/1.4 var(--body); }
+#tour-end ul { margin: 10px auto; padding-left: 1.2em; text-align: left; font: 19px/1.7 var(--body); }
+#tour-end .url { font: 500 18px/1.6 var(--mono); color: var(--tag); }
+
+#tour-start { position: fixed; right: 18px; bottom: 18px; z-index: 1001; }
+
+/* Store names on the search links are third-party marks; the video does not show them. */
+.tour-on .shopping .links { visibility: hidden; }
+
+[hidden] { display: none !important; }
