@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cast the Party</title>
+  <meta name="description" content="Costume fittings for murder-mystery guests: render a character's look on a guest's own photo with YouCam, see what actually showed up, and get the shopping list.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#cast">Skip to the characters</a>
+
+  <header class="masthead">
+    <p class="brand">Cast the Party <span>a wardrobe department for murder-mystery hosts</span></p>
+    <p class="budget" id="budget" aria-live="polite"></p>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Fit every guest for their part before the party.</h1>
+        <p class="lede">Each guest at a murder-mystery party gets a character. Guests often don't know how to look the part, and buying costume pieces online is guesswork, so half the table turns up in street clothes.</p>
+        <p class="lede">Pick a character, add a guest's photo, and YouCam renders the character's hair, colour, makeup, earrings and hat on the guest's own face. You get a <strong>costume tag</strong>: what changed, which pieces actually showed up on that face, and what to buy.</p>
+        <p class="hero-actions">
+          <a class="button" href="#cast">Choose a character</a>
+          <button class="button ghost" type="button" id="hero-example">Open an example tag</button>
+        </p>
+        <p class="fineprint">Every picture this app makes is an AI-rendered preview, not a photo. The demo faces are AI-generated people who do not exist.</p>
+      </div>
+      <figure class="hero-tag" aria-label="Example: the Night Editor's look on an AI-generated demo face">
+        <div class="tag mini">
+          <span class="eyelet" aria-hidden="true"></span>
+          <p class="tag-kicker">Wardrobe tag</p>
+          <p class="tag-name">The Night Editor</p>
+          <div class="hero-pair">
+            <img src="demo-faces/face-a.jpg" alt="AI-generated demo face before the fitting" width="384" height="512">
+            <img src="examples/night-editor/3-earrings.jpg" alt="The same face with the Night Editor's bob, ink-black hair, berry lip and pearl earrings, rendered by YouCam" width="384" height="512">
+          </div>
+          <p class="tag-foot">AI-rendered preview · demo face is AI-generated</p>
+        </div>
+      </figure>
+    </section>
+
+    <section id="cast" class="step" aria-labelledby="cast-title">
+      <h2 id="cast-title"><span class="step-no">1</span> Who are they playing?</h2>
+      <p class="step-note">Six original characters written for this demo, in the style of our party kits. Each look is a short stack of YouCam layers; the number on each layer is what it costs in YouCam units.</p>
+      <div class="playbill" id="playbill"></div>
+    </section>
+
+    <section id="fitting" class="step" aria-labelledby="fit-title" hidden>
+      <h2 id="fit-title"><span class="step-no">2</span> Whose face?</h2>
+      <div class="fitting">
+        <div class="photo-pick">
+          <div class="preview" id="preview"><p>No photo yet</p></div>
+          <label class="button upload">
+            <input type="file" id="file" accept="image/jpeg,image/png,image/webp">
+            Upload a guest's photo
+          </label>
+          <p class="hint">Straight on, face and shoulders visible, one person. The page shrinks it to 1024 px before sending.</p>
+          <p class="or">or try a demo face (AI-generated)</p>
+          <div class="faces" id="faces"></div>
+        </div>
+        <form class="fit-form" id="fit-form">
+          <p class="fit-for">Fitting for <strong id="fit-name"></strong></p>
+          <fieldset>
+            <legend>Hairstyle set</legend>
+            <p class="hint">YouCam files its hairstyle templates as "female" and "male", and its hat engine asks for the same. Pick the set you want to wear; it doesn't need to match anything else.</p>
+            <div id="variants" class="choices"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Layers</legend>
+            <div id="layers" class="choices"></div>
+          </fieldset>
+          <label class="consent" id="consent-row">
+            <input type="checkbox" id="consent">
+            <span>This is my photo, or I have the person's permission, and I agree to send it to Perfect Corp.'s YouCam API to render the preview. This app keeps it in memory for at most <span id="ttl">15</span> minutes and never writes it to disk. YouCam deletes uploaded and generated files after 30 days.</span>
+          </label>
+          <button class="button big" id="go" type="submit" disabled>Render the look</button>
+          <p class="cost" id="cost"></p>
+          <p class="error" id="error" role="alert"></p>
+          <ol class="progress" id="progress" aria-live="polite"></ol>
+        </form>
+      </div>
+    </section>
+
+    <section id="result" class="step" aria-labelledby="result-title" hidden>
+      <h2 id="result-title"><span class="step-no">3</span> The costume tag</h2>
+      <div id="tag-slot"></div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">How the tag is measured</h2>
+      <div class="method-grid">
+        <div>
+          <h3>What changed</h3>
+          <p>For every layer on the face card, the page draws the picture that went into YouCam and the one that came back at the same size and marks every pixel where a colour channel moved by 24 or more (of 255). The pink overlay is that mask; the percentage is its share of the picture.</p>
+        </div>
+        <div>
+          <h3>What showed up</h3>
+          <p>A piece is punched on the tag only if YouCam reported success <em>and</em> at least 0.05% of the picture visibly changed. A "success" that changed nothing is not counted. The hat portrait is a new composition, so it counts on YouCam's success alone.</p>
+        </div>
+        <div>
+          <h3>Did the hair reach the shade?</h3>
+          <p>On the pixels the hair-colour layer changed, we take the median colour before and after and compare each with the character's shade using CIEDE2000. Real hair has highlights and shadow, so 0 is not expected; what matters is how far it moved.</p>
+        </div>
+        <div>
+          <h3>What the app keeps</h3>
+          <p>Nothing on disk. Photos and results stay in the server's memory for up to 15 minutes so your browser can fetch them, then they are dropped. YouCam keeps uploaded and generated files for 30 days. The demo spends real YouCam units, so it has a daily cap.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for the YouCam API Skin AI &amp; eCommerce VTO Hackathon by Ai-Q Labs, makers of printable murder-mystery party kits. Built with AI assistance (Claude). Characters, props and demo faces are fictional; prop photos and demo faces were generated with YouCam's image generator. Shopping links are plain searches with no affiliate tags. MIT licensed.</p>
+  </footer>
+
+  <template id="tag-template">
+    <article class="tag full">
+      <span class="eyelet" aria-hidden="true"></span>
+      <header class="tag-head">
+        <p class="tag-kicker">Wardrobe tag · <span data-f="setting"></span></p>
+        <h3 class="tag-name" data-f="name"></h3>
+        <p class="tag-who" data-f="who"></p>
+      </header>
+      <div class="tag-body">
+        <div class="mirror-wrap">
+          <div class="mirror" data-f="mirror">
+            <img data-f="after" alt="">
+            <div class="mirror-before" data-f="before-clip"><img data-f="before" alt=""></div>
+            <span class="mirror-label left">before</span><span class="mirror-label right">after</span>
+          </div>
+          <label class="mirror-control">Compare <input type="range" min="0" max="100" value="50" data-f="slider" aria-label="Move the divider between before and after"></label>
+        </div>
+        <div class="tag-side">
+          <div class="punches" data-f="punches" role="img"></div>
+          <p class="coverage" data-f="coverage"></p>
+          <div class="shade" data-f="shade"></div>
+        </div>
+      </div>
+      <div class="layers-strip" data-f="strip"></div>
+      <div class="tag-lower">
+        <div class="shopping">
+          <h4>To buy or borrow</h4>
+          <ul data-f="shopping"></ul>
+          <p class="hint">Plain search links, no affiliate tags. "Previewed" means that piece showed up in this render.</p>
+        </div>
+        <figure class="portrait" data-f="portrait" hidden>
+          <img data-f="portrait-img" alt="">
+          <figcaption>YouCam's hat engine re-draws the whole person: it also invents an outfit and a background, and the face can drift. Look at the hat, not the clothes.</figcaption>
+        </figure>
+      </div>
+      <footer class="tag-foot" data-f="foot"></footer>
+      <p class="tag-actions"><button class="button ghost" type="button" data-f="print">Print this tag</button></p>
+    </article>
+  </template>
+</body>
+</html>

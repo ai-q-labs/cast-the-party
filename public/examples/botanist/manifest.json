@@ -1,0 +1,51 @@
+{
+  "characterId": "botanist",
+  "face": "face-b",
+  "variant": "male",
+  "renderedAt": "2026-10-24",
+  "seconds": 48,
+  "unitsCharged": 6,
+  "steps": [
+    {
+      "kind": "hairstyle",
+      "status": "done",
+      "units": 1,
+      "ms": 6206,
+      "error": null,
+      "image": "0-hairstyle.jpg"
+    },
+    {
+      "kind": "hairColor",
+      "status": "done",
+      "units": 1,
+      "ms": 6454,
+      "error": null,
+      "image": "1-hairColor.jpg"
+    },
+    {
+      "kind": "makeup",
+      "status": "done",
+      "units": 1,
+      "ms": 6476,
+      "error": null,
+      "image": "2-makeup.jpg"
+    },
+    {
+      "kind": "earrings",
+      "status": "done",
+      "units": 1,
+      "ms": 6415,
+      "error": null,
+      "image": "3-earrings.jpg"
+    },
+    {
+      "kind": "hat",
+      "status": "done",
+      "units": 2,
+      "ms": 19616,
+      "error": null,
+      "image": "4-hat.jpg"
+    }
+  ],
+  "note": "Step images re-saved as JPEG (quality 90) from what YouCam returned."
+}

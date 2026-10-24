@@ -1,0 +1,35 @@
+{
+  "characterId": "lighthouse-keeper",
+  "face": "face-b",
+  "variant": "male",
+  "renderedAt": "2026-10-24",
+  "seconds": 31,
+  "unitsCharged": 4,
+  "steps": [
+    {
+      "kind": "hairstyle",
+      "status": "done",
+      "units": 1,
+      "ms": 8744,
+      "error": null,
+      "image": "0-hairstyle.jpg"
+    },
+    {
+      "kind": "hairColor",
+      "status": "done",
+      "units": 1,
+      "ms": 6344,
+      "error": null,
+      "image": "1-hairColor.jpg"
+    },
+    {
+      "kind": "hat",
+      "status": "done",
+      "units": 2,
+      "ms": 14206,
+      "error": null,
+      "image": "2-hat.jpg"
+    }
+  ],
+  "note": "Step images re-saved as JPEG (quality 90) from what YouCam returned."
+}

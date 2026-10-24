@@ -1,0 +1,26 @@
+# date(UTC)	feature	units (balance before - after)	purpose	balance after
+# 2026-10-24: between 10:51 and 10:57 UTC a second pool of 40 units appeared on the account (not from this work); balance-difference rows are unaffected.
+2026-10-24T10:45:09.833Z	text-to-image/youcam	1	demo face (fictional, AI-generated): face_a	999
+2026-10-24T10:45:42.632Z	hair-style	1	first hair-style test: a_hs_choppy_bob	998
+2026-10-24T10:46:02.100Z	hair-color	1	chain test: hair colour on hairstyle result URL: a_hc_jet	997
+2026-10-24T10:46:33.629Z	text-to-image/youcam	1	prop image (AI-generated hat): hat_newsboy	996
+2026-10-24T10:46:44.328Z	text-to-image/youcam	1	prop image (AI-generated earring): earring_pearl	995
+2026-10-24T10:47:19.347Z	hat	2	first hat test: a_hat_newsboy	993
+2026-10-24T10:48:20.461Z	makeup-vto	1	first makeup test: a_mu_editor	992
+2026-10-24T10:48:51.638Z	2d-vto/earring	1	first earring test (ears covered by bob): a_er_pearl	991
+2026-10-24T10:50:04.856Z	text-to-image/youcam	1	prop image (AI-generated): hat_beanie	990
+2026-10-24T10:50:15.195Z	text-to-image/youcam	1	prop image (AI-generated): hat_straw	989
+2026-10-24T10:50:25.771Z	text-to-image/youcam	1	prop image (AI-generated): hat_conductor	988
+2026-10-24T10:50:36.460Z	text-to-image/youcam	1	prop image (AI-generated): earring_rhinestone	987
+2026-10-24T10:50:47.097Z	text-to-image/youcam	1	prop image (AI-generated): earring_leaf	986
+2026-10-24T10:51:11.904Z	text-to-image/youcam	1	demo face (fictional, AI-generated): face_b	985
+2026-10-24T10:51:22.586Z	text-to-image/youcam	1	demo face (fictional, AI-generated): face_c	984
+2026-10-24T10:57:30.301Z	look:hairstyle+hairColor+makeup+earrings+hat	6	example tag night-editor on face-a (female); app counted 6	1018
+2026-10-24T10:58:18.452Z	look:hairstyle+hairColor+makeup	3	example tag inn-keeper on face-c (female); app counted 3	1015
+2026-10-24T10:58:50.445Z	look:hairstyle+hairColor+hat	4	example tag lighthouse-keeper on face-b (male); app counted 4	1011
+2026-10-24T10:59:21.193Z	look:hairstyle+hairColor+makeup+earrings	4	example tag club-singer on face-c (female); app counted 4	1007
+2026-10-24T11:00:09.514Z	look:hairstyle+hairColor+makeup+earrings+hat	6	example tag botanist on face-b (male); app counted 6	1001
+2026-10-24T11:00:46.831Z	look:hairstyle+hairColor+hat	4	example tag station-master on face-a (female); app counted 4	997
+2026-10-24T11:09:54.000Z	look:hairstyle+hairColor+makeup+earrings	4	end-to-end over HTTP: local server, club-singer on face-a (male set)	993
+2026-10-24T11:10:36.000Z	look:hairstyle+hairColor+makeup	3	end-to-end over HTTP with an uploaded JPEG (data URL + consent): inn-keeper on face-b (male set)	990
+2026-10-24T11:11:27.000Z	look:hairstyle+hairColor+makeup	3	end-to-end over HTTP: inn-keeper on face-b (male set), demo path; meant as a cap check but the visitor still had 1 render left, so it ran (balance 990 -> 987)	987

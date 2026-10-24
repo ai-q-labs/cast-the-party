@@ -1,0 +1,23 @@
+{
+  "name": "cast-the-party",
+  "version": "1.0.0",
+  "description": "Costume fittings for murder-mystery guests: renders a character's look on a guest's own photo with the YouCam API and measures which pieces actually showed up.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "test:live": "node --test test/live.test.mjs"
+  },
+  "keywords": [
+    "youcam",
+    "perfect-corp",
+    "virtual-try-on",
+    "murder-mystery",
+    "costume"
+  ]
+}

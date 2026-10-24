@@ -1,0 +1,51 @@
+{
+  "characterId": "night-editor",
+  "face": "face-a",
+  "variant": "female",
+  "renderedAt": "2026-10-24",
+  "seconds": 47,
+  "unitsCharged": 6,
+  "steps": [
+    {
+      "kind": "hairstyle",
+      "status": "done",
+      "units": 1,
+      "ms": 8700,
+      "error": null,
+      "image": "0-hairstyle.jpg"
+    },
+    {
+      "kind": "hairColor",
+      "status": "done",
+      "units": 1,
+      "ms": 6337,
+      "error": null,
+      "image": "1-hairColor.jpg"
+    },
+    {
+      "kind": "makeup",
+      "status": "done",
+      "units": 1,
+      "ms": 9168,
+      "error": null,
+      "image": "2-makeup.jpg"
+    },
+    {
+      "kind": "earrings",
+      "status": "done",
+      "units": 1,
+      "ms": 6382,
+      "error": null,
+      "image": "3-earrings.jpg"
+    },
+    {
+      "kind": "hat",
+      "status": "done",
+      "units": 2,
+      "ms": 14161,
+      "error": null,
+      "image": "4-hat.jpg"
+    }
+  ],
+  "note": "Step images re-saved as JPEG (quality 90) from what YouCam returned."
+}
