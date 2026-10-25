@@ -104,6 +104,7 @@ Other limits, plainly:
 
 ## Privacy
 
+- An uploaded photo is sent only after the consent tick, which also confirms the person in it is 13 or older. The app is for party hosts and guests; it asks for no account, name or email.
 - Uploaded photos and results stay in the server's memory for at most 15 minutes (so the browser can fetch them), are never written to disk, and are not logged.
 - They are sent to Perfect Corp.'s YouCam API, which deletes uploaded and generated files after 30 days ([File Retention Period](https://docs.perfectcorp.com/develop/file_retention_period)).
 - The demo faces are AI-generated people who do not exist (YouCam image generator, `youcam-image-v2`). The hat and earring product photos are AI-generated too. No photo of a real person ships with the app.
