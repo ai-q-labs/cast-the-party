@@ -27,7 +27,7 @@ The result is a printable **costume tag**:
 - a shopping list where each item is marked *previewed*, *not previewed* or *not in the preview*, with plain search links;
 - the units the render used, and "AI-rendered preview, not a photo".
 
-On our six example tags the shade check did real work: ink black moved from 21.0 to 7.5, but platinum on dark hair went from 77.0 only to 59.8 (it came out olive), so that guest knows to buy a wig; and on a model whose hair was already near coal, the colour layer moved it *away* (3.0 → 8.1), so that piece can be skipped.
+On our six example tags the shade check did real work (values as the hosted demo shows them in Chrome): ink black moved from 21.2 to 7.6, but platinum on dark hair went from 77.0 only to 60.0 (it came out olive), so that guest knows to buy a wig; and on a model whose hair was already near coal, the colour layer moved it *away* (3.0 → 8.2), so that piece can be skipped.
 
 ## How we built it
 
@@ -36,7 +36,7 @@ On our six example tags the shade check did real work: ink black moved from 21.0
 - **YouCam image generator** made the three demo faces and the seven hat and earring product photos, so no real person's photo and no real product ships with the app.
 - **Measurements in the browser** (`public/measure.js`): changed-pixel masks, coverage, CIELAB medians and CIEDE2000, verified against the Sharma, Wu & Dalal test pairs.
 - **Caps for a public demo**: per-visitor renders, a daily unit budget and a concurrency limit, all configurable. A render reserves its planned cost and settles to the units actually counted.
-- **35 tests** with `node --test` (YouCam mocked), plus one opt-in live test. During development we logged every unit spent from the account balance before and after (`_dev_units.log`); the app's own count matched the balance on every render.
+- **34 tests** with `node --test` (YouCam mocked), plus one opt-in live test. During development we logged every unit spent from the account balance before and after (`_dev_units.log`); the app's own count matched the balance on every render.
 
 ## Challenges we ran into
 
